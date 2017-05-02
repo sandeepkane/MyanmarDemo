@@ -2,6 +2,7 @@ package demo.okdollar.demo2;
 
 import android.os.Bundle;
 import android.support.design.widget.NavigationView;
+import android.support.design.widget.TabLayout;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
@@ -33,6 +34,7 @@ public class HomeActivity extends AppCompatActivity
     private List<String> bannerImages;
     private RecyclerView categoryRecyclerView;
     private List<Category> categoryList;
+    private TabLayout tabLayout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -56,8 +58,17 @@ public class HomeActivity extends AppCompatActivity
         bannerImages = eCommerce.getListOfBannerImages();
         categoryRecyclerView = (RecyclerView) findViewById(R.id.category_view);
         categoryList = eCommerce.getCategoryList();
+        tabLayout = (TabLayout) findViewById(R.id.tab_layout);
         customizeBanner();
         customizeCategories();
+        customizeTabLayout();
+    }
+
+    private void customizeTabLayout() {
+        tabLayout.addTab(tabLayout.newTab().setText("Home"));
+        tabLayout.addTab(tabLayout.newTab().setText("Categories"));
+        tabLayout.addTab(tabLayout.newTab().setText("Services"));
+        tabLayout.addTab(tabLayout.newTab().setText("Account"));
     }
 
     private void customizeCategories() {
