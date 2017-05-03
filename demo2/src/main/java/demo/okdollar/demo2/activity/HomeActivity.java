@@ -141,6 +141,7 @@ public class HomeActivity extends AppCompatActivity
 
     private void addViewInViewFlipper(String imageUrl) {
         ImageView imageView = new ImageView(getApplicationContext());
+        imageView.setAdjustViewBounds(true);
         Picasso.with(this).load(imageUrl).into(imageView);
         viewFlipper.addView(imageView);
     }

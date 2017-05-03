@@ -24,10 +24,11 @@
             <ViewFlipper
                 android:id="@+id/image_flipper"
                 android:layout_width="match_parent"
-                android:layout_height="150dp"
+                android:layout_height="wrap_content"
                 android:background="@drawable/borders"
                 android:flipInterval="2000"
                 android:inAnimation="@android:anim/slide_in_left"
+                android:minHeight="100dp"
                 android:outAnimation="@android:anim/slide_out_right" />
 
             <LinearLayout
@@ -74,7 +75,8 @@
                     android:layout_height="wrap_content"
                     android:layout_weight=".3"
                     android:text="Fast Moving Products"
-                    android:textSize="16sp" />
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
 
                 <Button
                     android:layout_width="match_parent"
