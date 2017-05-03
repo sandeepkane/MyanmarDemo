@@ -1,4 +1,4 @@
-package demo.okdollar.demo2;
+package demo.okdollar.demo2.adapter;
 
 import android.content.Context;
 import android.support.v4.view.PagerAdapter;
@@ -11,6 +11,8 @@ import android.widget.LinearLayout;
 import com.squareup.picasso.Picasso;
 
 import java.util.List;
+
+import demo.okdollar.demo2.R;
 
 /**
  * Created by DELTA on 5/2/2017.

@@ -5,6 +5,8 @@ import android.content.Context;
 import java.util.ArrayList;
 import java.util.List;
 
+import demo.okdollar.demo2.model.Category;
+
 /**
  * Created by DELTA on 5/2/2017.
  */
@@ -14,6 +16,12 @@ public class ECommerce {
 
     public ECommerce(Context context) {
         this.context = context;
+    }
+
+    public List<String> getComponentList() {
+        List<String> componentList = new ArrayList<>();
+        componentList.add("BannerAndCategories");
+        return componentList;
     }
 
     public List<String> getListOfBannerImages() {
@@ -32,11 +40,11 @@ public class ECommerce {
 
     public List<Category> getCategoryList() {
         List<Category> categoryList = new ArrayList<>();
-        categoryList.add(new Category("All\nCategories", "http://n1.sdlcdn.com/imgs/f/o/r/MensInnerWearWEB-c3c82.j", R.drawable.tab_bar_category_ic));
-       /* categoryList.add(new Category("Fashion", ""));
-        categoryList.add(new Category("Mobile &\nElectronics", ""));
-        categoryList.add(new Category("Home &\nLiving", ""));
-        categoryList.add(new Category("Daily Needs", ""));*/
+        categoryList.add(new Category("All\nCategories", "http://n1.sdlcdn.com/imgs/f/o/r/MensInnerWearWEB-c3c82.j", R.drawable.ic_category));
+        categoryList.add(new Category("Fashion", "http://n1.sdlcdn.com/imgs/f/o/r/MensInnerWearWEB-c3c82.j", R.drawable.ic_category));
+        categoryList.add(new Category("Mobile &\nElectronics", "http://n1.sdlcdn.com/imgs/f/o/r/MensInnerWearWEB-c3c82.j", R.drawable.ic_category));
+        categoryList.add(new Category("Home &\nLiving", "http://n1.sdlcdn.com/imgs/f/o/r/MensInnerWearWEB-c3c82.j", R.drawable.ic_category));
+        categoryList.add(new Category("Daily Needs", "http://n1.sdlcdn.com/imgs/f/o/r/MensInnerWearWEB-c3c82.j", R.drawable.ic_category));
         return categoryList;
     }
 }

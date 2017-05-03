@@ -1,20 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_margin="5dp"
     android:orientation="vertical">
 
     <ImageView
         android:id="@+id/category_image"
         android:layout_width="wrap_content"
-        android:src="@drawable/tab_bar_category_ic"
         android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
         android:background="@drawable/round_shape"
-        android:contentDescription="Category Image" />
+        android:contentDescription="Category Image"
+        android:src="@drawable/tab_bar_category_ic" />
 
     <TextView
         android:id="@+id/category_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:gravity="center" />
+        android:layout_gravity="center_horizontal"
+        android:gravity="center"
+        android:textSize="10sp" />
 </LinearLayout>

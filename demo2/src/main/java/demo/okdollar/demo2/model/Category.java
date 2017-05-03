@@ -1,4 +1,4 @@
-package demo.okdollar.demo2;
+package demo.okdollar.demo2.model;
 
 /**
  * Created by DELTA on 5/2/2017.

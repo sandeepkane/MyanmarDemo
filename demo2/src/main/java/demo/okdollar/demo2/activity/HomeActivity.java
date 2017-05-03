@@ -1,4 +1,4 @@
-package demo.okdollar.demo2;
+package demo.okdollar.demo2.activity;
 
 import android.os.Bundle;
 import android.support.design.widget.NavigationView;
@@ -10,19 +10,21 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
-import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
-import android.widget.TextView;
 import android.widget.ViewFlipper;
 
 import com.squareup.picasso.Picasso;
 
 import java.util.List;
+
+import demo.okdollar.demo2.ECommerce;
+import demo.okdollar.demo2.R;
+import demo.okdollar.demo2.adapter.CategoryAdapterHolder;
+import demo.okdollar.demo2.model.Category;
 
 public class HomeActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -35,6 +37,7 @@ public class HomeActivity extends AppCompatActivity
     private RecyclerView categoryRecyclerView;
     private List<Category> categoryList;
     private TabLayout tabLayout;
+    private List<String> componentList;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -74,7 +77,7 @@ public class HomeActivity extends AppCompatActivity
     private void customizeCategories() {
         LinearLayoutManager mLinearLayoutManager = new LinearLayoutManager(getApplicationContext(), LinearLayoutManager.HORIZONTAL, false);
         categoryRecyclerView.setLayoutManager(mLinearLayoutManager);
-        CategoryAdapterHolder categoryAdapterHolder = new CategoryAdapterHolder(categoryList);
+        CategoryAdapterHolder categoryAdapterHolder = new CategoryAdapterHolder(this, categoryList);
         categoryRecyclerView.setAdapter(categoryAdapterHolder);
     }
 
@@ -175,44 +178,5 @@ public class HomeActivity extends AppCompatActivity
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
-    }
-
-    class CategoryAdapterHolder extends RecyclerView.Adapter<CategoryAdapterHolder.ViewHolder> {
-        List<Category> categories;
-
-        public CategoryAdapterHolder(List<Category> categories) {
-            this.categories = categories;
-        }
-
-        @Override
-        public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-            final LayoutInflater mInflater = LayoutInflater.from(parent.getContext());
-            final View sView = mInflater.inflate(R.layout.single_ccategory_view, parent, false);
-            return new ViewHolder(sView);
-        }
-
-        @Override
-        public void onBindViewHolder(ViewHolder holder, int position) {
-            Category category = categories.get(position);
-            Picasso.with(HomeActivity.this).load(category.getImageUrl()).error(category.getPlaceholder()).placeholder(category.getPlaceholder()).into(holder.categoryImage);
-            holder.categoryNameTextView.setText(category.getName());
-        }
-
-        @Override
-        public int getItemCount() {
-            return categories.size();
-        }
-
-        public class ViewHolder extends RecyclerView.ViewHolder {
-
-            public ImageView categoryImage;
-            public TextView categoryNameTextView;
-
-            public ViewHolder(View itemView) {
-                super(itemView);
-                categoryImage = (ImageView) itemView.findViewById(R.id.category_image);
-                categoryNameTextView = (TextView) itemView.findViewById(R.id.category_name);
-            }
-        }
     }
 }
