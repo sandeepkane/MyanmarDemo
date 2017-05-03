@@ -1,6 +1,35 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
-    <item android:id="@+id/action_settings" android:orderInCategory="100"
-        android:title="@string/action_settings" app:showAsAction="never" />
+    <item
+        android:id="@+id/my_lists"
+        android:icon="@drawable/ic_my_list"
+        android:title="My Lists"
+        app:showAsAction="always" />
+    <item
+        android:id="@+id/my_cart"
+        android:icon="@drawable/notification_cart_icon"
+        android:title="Cart"
+        app:showAsAction="always" />
+    <item
+        android:id="@+id/my_services"
+        android:icon="@drawable/crux_3bar_services"
+        android:title="Services"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/my_track_order"
+        android:icon="@drawable/material_leftdrawer_trackyourorder"
+        android:title="Track Order"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/my_notifications"
+        android:icon="@drawable/notification_cart_icon"
+        android:title="Notification"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/action_settings"
+        android:icon="@drawable/material_overflow_settings"
+        android:orderInCategory="100"
+        android:title="@string/action_settings"
+        app:showAsAction="never" />
 </menu>

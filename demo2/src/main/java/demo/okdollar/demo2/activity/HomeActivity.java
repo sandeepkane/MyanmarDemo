@@ -1,8 +1,10 @@
 package demo.okdollar.demo2.activity;
 
+import android.graphics.PorterDuff;
 import android.os.Bundle;
 import android.support.design.widget.NavigationView;
 import android.support.design.widget.TabLayout;
+import android.support.v4.content.ContextCompat;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
@@ -44,6 +46,7 @@ public class HomeActivity extends AppCompatActivity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        toolbar.setTitle("snapdeal");
         setSupportActionBar(toolbar);
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
@@ -68,10 +71,29 @@ public class HomeActivity extends AppCompatActivity
     }
 
     private void customizeTabLayout() {
-        tabLayout.addTab(tabLayout.newTab().setText("Home"));
-        tabLayout.addTab(tabLayout.newTab().setText("Categories"));
-        tabLayout.addTab(tabLayout.newTab().setText("Services"));
-        tabLayout.addTab(tabLayout.newTab().setText("Account"));
+        tabLayout.addTab(tabLayout.newTab().setIcon(R.drawable.ic_tab_home).setText("Home"));
+        tabLayout.addTab(tabLayout.newTab().setIcon(R.drawable.ic_tab_category).setText("Categories"));
+        tabLayout.addTab(tabLayout.newTab().setIcon(R.drawable.ic_tab_service).setText("Services"));
+        tabLayout.addTab(tabLayout.newTab().setIcon(R.drawable.ic_tab_account).setText("Account"));
+
+        tabLayout.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
+            @Override
+            public void onTabSelected(TabLayout.Tab tab) {
+                int tabIconColor = ContextCompat.getColor(HomeActivity.this, R.color.colorAccent);
+                tab.getIcon().setColorFilter(tabIconColor, PorterDuff.Mode.SRC_IN);
+            }
+
+            @Override
+            public void onTabUnselected(TabLayout.Tab tab) {
+                int tabIconColor = ContextCompat.getColor(HomeActivity.this, R.color.unselected_tab_color);
+                tab.getIcon().setColorFilter(tabIconColor, PorterDuff.Mode.SRC_IN);
+            }
+
+            @Override
+            public void onTabReselected(TabLayout.Tab tab) {
+
+            }
+        });
     }
 
     private void customizeCategories() {
