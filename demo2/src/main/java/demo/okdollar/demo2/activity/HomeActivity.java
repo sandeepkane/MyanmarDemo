@@ -26,7 +26,9 @@ import java.util.List;
 import demo.okdollar.demo2.ECommerce;
 import demo.okdollar.demo2.R;
 import demo.okdollar.demo2.adapter.CategoryAdapterHolder;
+import demo.okdollar.demo2.adapter.ProductAdapter;
 import demo.okdollar.demo2.model.Category;
+import demo.okdollar.demo2.model.Product;
 
 public class HomeActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -37,9 +39,9 @@ public class HomeActivity extends AppCompatActivity
     private ImageView[] dots;
     private List<String> bannerImages;
     private RecyclerView categoryRecyclerView;
+    private RecyclerView productRecyclerView;
     private List<Category> categoryList;
     private TabLayout tabLayout;
-    private List<String> componentList;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -65,9 +67,18 @@ public class HomeActivity extends AppCompatActivity
         categoryRecyclerView = (RecyclerView) findViewById(R.id.category_view);
         categoryList = eCommerce.getCategoryList();
         tabLayout = (TabLayout) findViewById(R.id.tab_layout);
+        productRecyclerView = (RecyclerView) findViewById(R.id.product_list);
         customizeBanner();
+        customizeProductList();
         customizeCategories();
         customizeTabLayout();
+    }
+
+    private void customizeProductList() {
+        List<Product> products = eCommerce.getProductList();
+        LinearLayoutManager mLinearLayoutManager = new LinearLayoutManager(getApplicationContext(), LinearLayoutManager.HORIZONTAL, false);
+        productRecyclerView.setLayoutManager(mLinearLayoutManager);
+        productRecyclerView.setAdapter(new ProductAdapter(this, products));
     }
 
     private void customizeTabLayout() {

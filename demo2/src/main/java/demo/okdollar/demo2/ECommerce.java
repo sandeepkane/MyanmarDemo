@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import demo.okdollar.demo2.model.Category;
+import demo.okdollar.demo2.model.Product;
 
 /**
  * Created by DELTA on 5/2/2017.
@@ -46,5 +47,14 @@ public class ECommerce {
         categoryList.add(new Category("Home &\nLiving", "http://n1.sdlcdn.com/imgs/f/o/r/MensInnerWearWEB-c3c82.j", R.drawable.ic_category));
         categoryList.add(new Category("Daily Needs", "http://n1.sdlcdn.com/imgs/f/o/r/MensInnerWearWEB-c3c82.j", R.drawable.ic_category));
         return categoryList;
+    }
+
+    public List<Product> getProductList() {
+        List<Product> products = new ArrayList<>();
+        products.add(new Product("", "599.00", ""));
+        products.add(new Product("", "599.00", ""));
+        products.add(new Product("", "599.00", ""));
+        products.add(new Product("", "599.00", ""));
+        return products;
     }
 }
